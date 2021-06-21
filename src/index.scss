@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+
+$color-purple: #0075ff;
+$color-green: #2ad853;
+$font-family: "Roboto", sans-serif;
+
+body {
+  margin: 0;
+  font-family: $font-family ;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+label{
+  font-size: 0.8rem;
+  display: block;
+  margin: 1.5rem 0 0.2rem;
+}
+
+select, input {
+  font-size: 1rem;
+  font-family: $font-family;
+  display: block;
+  padding: 0.5em 0;
+  margin-bottom: 0.2rem;
+  border: none;
+  border-bottom: 1px solid #00000029;
+  outline: none;
+  width: 100%;
+}
+
+
+input[type="submit"]{
+  color: #fff;
+  background: $color-purple;
+  padding: 0.8em 1.5em;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 2px 6px 0px #00000042;
+  cursor: pointer;
+  &:hover{
+    box-shadow: 0px 2px 3px 0px #00000042;
+  }
+}
+
+button {
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: #fff;
+  padding: 0.8em 1.5em;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 2px 6px 0px #00000042;
+  cursor: pointer;
+  &:hover{
+    box-shadow: 0px 2px 3px 0px #00000042;
+  }
+}
+
+.color-blue{
+  color: $color-purple;
+}
+.color-green{
+  color: $color-green;
+}

@@ -1,0 +1,24 @@
+.slider__container {
+  margin: 1rem 1.5rem;
+  padding-bottom: 1rem;
+  h3{
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+}
+
+.field {
+  position: relative;
+  &__item {
+    position: absolute;
+    font-size: 0.8rem;
+    top: -3px;
+  }
+  &__left {
+    left: 5px;
+  }
+  &__right {
+    right: 0;
+  }
+}

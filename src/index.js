@@ -1,14 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import "react-app-polyfill/ie11";
+import "react-app-polyfill/stable";
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.scss";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import {StoreGlobalContextProvider}  from "./Context/storeGlobal-context";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StoreGlobalContextProvider>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </StoreGlobalContextProvider>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

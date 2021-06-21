@@ -1,0 +1,116 @@
+.ticket {
+  display: flex;
+  padding: 1rem 0rem 1rem 3rem;
+  border: 1px solid #80808080;
+  border-bottom: none;
+  border-top: 2px dashed #80808080;
+  position: relative;
+  @media screen and (max-width: 460px) {
+    padding-left: 2rem;
+  }
+  &--animate {
+    opacity: 0;
+    animation: 0.3s ease-in 0.1s forwards fadeInAnimation;
+  }
+  &:last-child {
+    border-bottom: 2px dashed #80808080;
+  }
+  &::after,
+  &::before {
+    content: "";
+    height: 30px;
+    width: 30px;
+    background-color: #fff;
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+  }
+  &::before {
+    left: -15px;
+    border-right: 1px solid #80808080;
+  }
+  &::after {
+    border-left: 1px solid #80808080;
+    right: -15px;
+  }
+  @media screen and (max-width: 632px) {
+    display: block;
+  }
+  &__left {
+    width: 100%;
+    h2 {
+      font-size: 1.5rem;
+    }
+    &-col-2 {
+      display: flex;
+    }
+  }
+  &__details {
+    min-width: 300px;
+    @media screen and (max-width: 1108px) {
+      min-width: auto;
+      margin-right: 4rem;
+    }
+    @media screen and (max-width: 460px) {
+      margin-right: 1.5rem;
+    }
+
+    p {
+      margin: 0 0 0.2rem;
+      font-size: 1rem;
+      &.ticket_id {
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+      }
+      &.city {
+        margin: 0.5rem 0;
+      }
+    }
+  }
+
+  &__right {
+    width: 270px;
+    position: relative;
+    @media screen and (max-width: 632px) {
+      width: auto;
+      display: block;
+    }
+  }
+  &__image {
+    object-fit: contain;
+    height: 85px;
+    width: 100%;
+    @media screen and (max-width: 632px) {
+      object-position: left;
+    }
+  }
+  &__cta {
+    background-color: #0075ff;
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+    padding: 0.6rem 0.8rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @media screen and (max-width: 632px) {
+      position: static;
+      margin: 0.2rem 0;
+    }
+  }
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
