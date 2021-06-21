@@ -10,6 +10,8 @@ function FotmFilter() {
   let returnDate = useRef();
 
   const [isValidDestination, setIsValidDestination] = useState(true);
+  const [isValidDate, setIsValidDate] = useState(true);
+  const [isValidReturnDate, setIsValidReturnDate] = useState(true);
 
   let handleFormType = (e) => {
     if (e.target.innerText === "Return") {
@@ -21,6 +23,7 @@ function FotmFilter() {
 
   let handleFilterFlights = (e) => {
     e.preventDefault();
+
     let filters = {
       originCity: originCity.current.value,
       destinationCity: destinationCity.current.value,
@@ -28,9 +31,31 @@ function FotmFilter() {
       returnDate: ctx.formTypeReturn ? returnDate.current.value : null,
     };
 
+    //Date Validation ====
+    let UserDate = departureDate.current.value;
+    let ToDate = new Date();
+    if (new Date(UserDate).getTime() <= ToDate.getTime()) {
+      setIsValidDate(false);
+      return;
+    } else {
+      setIsValidDate(true);
+    }
+
+    if (ctx.formTypeReturn) {
+      let retDate = returnDate.current.value;
+      let departDate = departureDate.current.value;
+      if (new Date(retDate).getTime() <= new Date(departDate).getTime()) {
+        setIsValidReturnDate(false);
+        return;
+      } else {
+        setIsValidReturnDate(true);
+      }
+    }
+    //Date Validation ====
+
     if (filters.originCity === filters.destinationCity) {
       setIsValidDestination(false);
-    } else{
+    } else {
       ctx.handelFilterValues(filters);
       setIsValidDestination(true);
     }
@@ -77,10 +102,12 @@ function FotmFilter() {
         {!isValidDestination && <p className="error">Destination can't be same as origin.</p>}
         <label htmlFor="departureDate">Departure Date</label>
         <input ref={departureDate} id="departureDate" type="date" required />
+        {!isValidDate && <p className="error">Please check the date.</p>}
         {ctx.formTypeReturn && (
           <>
             <label htmlFor="returnDate">Return Date</label>
-            <input ref={returnDate} id="returnDate" type="date" required/>
+            <input ref={returnDate} id="returnDate" type="date" required />
+            {!isValidReturnDate && <p className="error">Please check the date.</p>}
           </>
         )}
         <label htmlFor="passengers">Passengers</label>
