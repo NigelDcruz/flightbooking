@@ -39,6 +39,7 @@ select, input {
   border-bottom: 1px solid #00000029;
   outline: none;
   width: 100%;
+  background-color: #fff;
 }
 
 
@@ -64,6 +65,7 @@ button {
   border-radius: 5px;
   box-shadow: 0px 2px 6px 0px #00000042;
   cursor: pointer;
+  outline: none;
   &:hover{
     box-shadow: 0px 2px 3px 0px #00000042;
   }
